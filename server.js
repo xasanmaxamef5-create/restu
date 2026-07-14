@@ -7,7 +7,17 @@ const port = 5000;
 
 app.use(cors());
 app.use(express.json());
-
+// Root path
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'Server is running', 
+    message: 'Welcome to Friends Fast Food API',
+    endpoints: {
+      menu: '/api/menu',
+      orders: '/api/orders'
+    }
+  });
+});
 // Faylka orders-ka
 const ORDERS_FILE = path.join(__dirname, 'orders.json');
 
